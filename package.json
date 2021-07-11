@@ -7,7 +7,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "test": "jest --watchAll",
-    "format": "prettier *.{js,tsx} -w"
+    "format": "prettier ./**/*.{js,ts,tsx} -w"
   },
   "jest": {
     "preset": "jest-expo"
