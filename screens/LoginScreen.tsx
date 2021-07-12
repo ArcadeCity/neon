@@ -10,6 +10,7 @@ import {
 import { Text, View } from '../components/Themed'
 import { color, images, palette, spacing, typography } from 'views/theme'
 import { Magic } from 'services/magic'
+import * as web3 from '@solana/web3.js'
 
 export default function LoginScreen() {
   const [user, setUser] = React.useState<any>()
@@ -29,6 +30,14 @@ export default function LoginScreen() {
         const magicUser = await magic.sdk.solana.sdk.user.getMetadata()
         console.log(magicUser)
         setUser(magicUser)
+        const transaction = web3.SystemProgram.transfer({
+          fromPubkey: magicUser.publicAddress,
+          toPubkey: new web3.PublicKey(
+            '9kPmf9egtyUtNvmnf25KsP5QE6VTBfXXhJJkjEehUXw9'
+          ),
+          lamports: 1000,
+        })
+        console.log(transaction)
       } catch (e) {
         console.log(e)
       }
