@@ -7,7 +7,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "test": "jest --watchAll",
-    "format": "prettier *.{js,tsx} -w"
+    "format": "prettier ./**/*.{js,ts,tsx} -w"
   },
   "jest": {
     "preset": "jest-expo"
@@ -26,6 +26,7 @@
     "expo-splash-screen": "~0.11.2",
     "expo-status-bar": "~1.0.4",
     "expo-web-browser": "~9.2.0",
+    "ramda": "^0.27.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
@@ -43,9 +44,11 @@
     "@storybook/addon-ondevice-actions": "^5.3.23",
     "@storybook/addon-ondevice-knobs": "^5.3.25",
     "@storybook/react-native": "^5.3.25",
+    "@types/ramda": "^0.27.44",
     "@types/react": "~16.9.35",
     "@types/react-native": "~0.63.2",
     "babel-loader": "^8.2.2",
+    "babel-plugin-module-resolver": "^4.1.0",
     "jest-expo": "~41.0.0-beta.0",
     "prettier": "^2.3.2",
     "typescript": "~4.0.0"

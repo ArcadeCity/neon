@@ -3,76 +3,84 @@
  * https://reactnavigation.org/docs/bottom-tab-navigator
  */
 
-import { Ionicons } from '@expo/vector-icons';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
-import * as React from 'react';
+import { Ionicons } from '@expo/vector-icons'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createStackNavigator } from '@react-navigation/stack'
+import * as React from 'react'
 
-import Colors from '../constants/Colors';
-import useColorScheme from '../hooks/useColorScheme';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+import Colors from '../constants/Colors'
+import useColorScheme from '../hooks/useColorScheme'
+import WalletScreen from '../screens/WalletScreen'
+import AccountScreen from '../screens/AccountScreen'
+import { BottomTabParamList, WalletParamList, AccountParamList } from '../types'
 
-const BottomTab = createBottomTabNavigator<BottomTabParamList>();
+const BottomTab = createBottomTabNavigator<BottomTabParamList>()
 
 export default function BottomTabNavigator() {
-  const colorScheme = useColorScheme();
+  const colorScheme = useColorScheme()
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
+      initialRouteName='Wallet'
+      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
+    >
       <BottomTab.Screen
-        name="TabOne"
-        component={TabOneNavigator}
+        name='Wallet'
+        component={WalletNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name='ios-code' color={color} />
+          ),
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoNavigator}
+        name='Account'
+        component={AccountNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name='ios-code' color={color} />
+          ),
         }}
       />
     </BottomTab.Navigator>
-  );
+  )
 }
 
 // You can explore the built-in icon families and icons on the web at:
 // https://icons.expo.fyi/
-function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']; color: string }) {
-  return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;
+function TabBarIcon(props: {
+  name: React.ComponentProps<typeof Ionicons>['name']
+  color: string
+}) {
+  return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />
 }
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
-const TabOneStack = createStackNavigator<TabOneParamList>();
+const WalletStack = createStackNavigator<WalletParamList>()
 
-function TabOneNavigator() {
+function WalletNavigator() {
   return (
-    <TabOneStack.Navigator>
-      <TabOneStack.Screen
-        name="TabOneScreen"
-        component={TabOneScreen}
-        options={{ headerTitle: 'Tab One Title' }}
+    <WalletStack.Navigator>
+      <WalletStack.Screen
+        name='WalletScreen'
+        component={WalletScreen}
+        options={{ headerTitle: 'Wallet' }}
       />
-    </TabOneStack.Navigator>
-  );
+    </WalletStack.Navigator>
+  )
 }
 
-const TabTwoStack = createStackNavigator<TabTwoParamList>();
+const AccountStack = createStackNavigator<AccountParamList>()
 
-function TabTwoNavigator() {
+function AccountNavigator() {
   return (
-    <TabTwoStack.Navigator>
-      <TabTwoStack.Screen
-        name="TabTwoScreen"
-        component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
+    <AccountStack.Navigator>
+      <AccountStack.Screen
+        name='AccountScreen'
+        component={AccountScreen}
+        options={{ headerTitle: 'Account' }}
       />
-    </TabTwoStack.Navigator>
-  );
+    </AccountStack.Navigator>
+  )
 }
