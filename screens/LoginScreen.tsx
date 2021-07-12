@@ -9,8 +9,21 @@ import {
 } from 'react-native'
 import { Text, View } from '../components/Themed'
 import { color, images, palette, spacing, typography } from 'views/theme'
+import { Magic } from 'services/magic'
 
 export default function LoginScreen() {
+  React.useEffect(() => {
+    ;(async () => {
+      const magic = new Magic()
+      await magic.setup()
+      try {
+        await magic.sdk.auth.loginWithMagicLink({ email: 'chris@arcade.city' })
+        console.log('Login successful')
+      } catch (e) {
+        console.log(e)
+      }
+    })()
+  }, [])
   return (
     <View style={styles.container}>
       <Image

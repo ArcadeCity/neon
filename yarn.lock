@@ -2114,6 +2114,11 @@
     "@babel/runtime" "^7.7.2"
     regenerator-runtime "^0.13.3"
 
+"@magic-ext/solana@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@magic-ext/solana/-/solana-0.2.0.tgz#1ce0a3eadeb15b62ec5d74d4eb4bd79698d11fbc"
+  integrity sha512-bmgxe20zIJcvz4awZ5Zb1ODtYTFL+AnISSRosSqmjVSsjYNm/hpbbs+spR1kNu3o/Wo/fkS3ARX/+DnaPTXtiQ==
+
 "@magic-sdk/commons@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@magic-sdk/commons/-/commons-1.1.0.tgz#253fbbb8846b79e8defacda68ac30b0ac3581e7c"
