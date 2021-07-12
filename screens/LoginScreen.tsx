@@ -12,18 +12,42 @@ import { color, images, palette, spacing, typography } from 'views/theme'
 import { Magic } from 'services/magic'
 
 export default function LoginScreen() {
+  const [user, setUser] = React.useState()
   React.useEffect(() => {
     ;(async () => {
       const magic = new Magic()
       await magic.setup()
       try {
-        await magic.sdk.auth.loginWithMagicLink({ email: 'chris@arcade.city' })
+        await magic.sdk.auth.loginWithMagicLink({
+          email: 'chris@arcade.city',
+          showUI: false,
+        })
         console.log('Login successful')
+        const magicUser = await magic.sdk.user.getMetadata()
+        setUser(magicUser)
       } catch (e) {
         console.log(e)
       }
     })()
   }, [])
+
+  if (user) {
+    return (
+      <View style={styles.container}>
+        <Image
+          source={images.logo}
+          style={{
+            width: 100,
+            height: 100,
+            resizeMode: 'contain',
+            marginBottom: 20,
+          }}
+        />
+        <Text style={styles.title}>WELCOME</Text>
+      </View>
+    )
+  }
+
   return (
     <View style={styles.container}>
       <Image
