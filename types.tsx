@@ -4,19 +4,19 @@
  */
 
 export type RootStackParamList = {
-  Root: undefined
+  Login: undefined
   NotFound: undefined
 }
 
 export type BottomTabParamList = {
   Wallet: undefined
-  TabTwo: undefined
+  Account: undefined
 }
 
-export type TabOneParamList = {
-  TabOneScreen: undefined
+export type WalletParamList = {
+  WalletScreen: undefined
 }
 
-export type TabTwoParamList = {
-  TabTwoScreen: undefined
+export type AccountParamList = {
+  AccountScreen: undefined
 }

@@ -13,6 +13,7 @@ import * as React from 'react'
 import { ColorSchemeName } from 'react-native'
 
 import NotFoundScreen from '../screens/NotFoundScreen'
+import LoginScreen from '../screens/LoginScreen'
 import { RootStackParamList } from '../types'
 import BottomTabNavigator from './BottomTabNavigator'
 import LinkingConfiguration from './LinkingConfiguration'
@@ -36,10 +37,16 @@ export default function Navigation({
 // Read more here: https://reactnavigation.org/docs/modal
 const Stack = createStackNavigator<RootStackParamList>()
 
+// Auth placeholder
+const authed = false
+
 function RootNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name='Root' component={BottomTabNavigator} />
+      <Stack.Screen
+        name='Login'
+        component={authed ? BottomTabNavigator : LoginScreen}
+      />
       <Stack.Screen
         name='NotFound'
         component={NotFoundScreen}

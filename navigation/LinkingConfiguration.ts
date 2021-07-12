@@ -10,16 +10,16 @@ export default {
   prefixes: [Linking.makeUrl('/')],
   config: {
     screens: {
-      Root: {
+      Login: {
         screens: {
-          TabOne: {
+          Wallet: {
             screens: {
-              TabOneScreen: 'one',
+              WalletScreen: 'one',
             },
           },
-          TabTwo: {
+          Account: {
             screens: {
-              TabTwoScreen: 'two',
+              AccountScreen: 'two',
             },
           },
         },
