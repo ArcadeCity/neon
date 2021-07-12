@@ -12,18 +12,22 @@ import { color, images, palette, spacing, typography } from 'views/theme'
 import { Magic } from 'services/magic'
 
 export default function LoginScreen() {
-  const [user, setUser] = React.useState()
+  const [user, setUser] = React.useState<any>()
   React.useEffect(() => {
     ;(async () => {
       const magic = new Magic()
       await magic.setup()
       try {
-        await magic.sdk.auth.loginWithMagicLink({
+        await magic.sdk.user.logout()
+        console.log('logged out...?')
+        console.log(magic)
+        await magic.sdk.solana.sdk.auth.loginWithMagicLink({
           email: 'chris@arcade.city',
           showUI: false,
         })
         console.log('Login successful')
-        const magicUser = await magic.sdk.user.getMetadata()
+        const magicUser = await magic.sdk.solana.sdk.user.getMetadata()
+        console.log(magicUser)
         setUser(magicUser)
       } catch (e) {
         console.log(e)
@@ -44,6 +48,15 @@ export default function LoginScreen() {
           }}
         />
         <Text style={styles.title}>WELCOME</Text>
+        <Text
+          style={{
+            fontFamily: typography.bold,
+            fontSize: 18,
+            color: color.secondaryText,
+          }}
+        >
+          {user?.publicAddress}
+        </Text>
       </View>
     )
   }
