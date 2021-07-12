@@ -1,12 +1,21 @@
 import * as React from 'react'
-import { StyleSheet } from 'react-native'
+import { Image, StyleSheet } from 'react-native'
 import { Text, View } from '../components/Themed'
-import { palette, typography } from '../theme'
+import { images, palette, typography } from '../theme'
 
 export default function LoginScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+      <Image
+        source={images.logo}
+        style={{
+          width: 80,
+          height: 80,
+          resizeMode: 'contain',
+          marginBottom: 20,
+        }}
+      />
+      <Text style={styles.title}>Neon Wallet</Text>
       <View
         style={styles.separator}
         lightColor='#eee'
