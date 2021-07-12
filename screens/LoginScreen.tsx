@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {
+  Alert,
   Image,
   StyleSheet,
   TextInput,
@@ -41,7 +42,10 @@ export default function LoginScreen() {
           }}
         />
       </View>
-      <TouchableOpacity onPress={() => alert('yo')} style={styles.primary}>
+      <TouchableOpacity
+        onPress={() => Alert.alert('yo')}
+        style={styles.primary}
+      >
         <Text style={{ fontFamily: typography.bold, fontSize: 18 }}>
           Login with Email
         </Text>
@@ -51,7 +55,10 @@ export default function LoginScreen() {
         lightColor='#eee'
         darkColor='rgba(255,255,255,0.1)'
       />
-      <TouchableOpacity onPress={() => alert('yo')} style={styles.secondary}>
+      <TouchableOpacity
+        onPress={() => Alert.alert('yo')}
+        style={styles.secondary}
+      >
         <Text
           style={{
             fontFamily: typography.bold,
@@ -62,7 +69,10 @@ export default function LoginScreen() {
           Login with Sollet
         </Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => alert('yo')} style={styles.secondary}>
+      <TouchableOpacity
+        onPress={() => Alert.alert('yo')}
+        style={styles.secondary}
+      >
         <Text
           style={{
             fontFamily: typography.bold,
