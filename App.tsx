@@ -7,7 +7,7 @@ import useCachedResources from './hooks/useCachedResources'
 import useColorScheme from './hooks/useColorScheme'
 import Navigation from './navigation'
 import { useEffect } from 'react'
-import { initFonts } from './theme'
+import { initFonts } from 'views/theme'
 
 export default function App() {
   const isLoadingComplete = useCachedResources()

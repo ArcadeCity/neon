@@ -7,7 +7,7 @@ import {
   ViewStyle,
 } from 'react-native'
 import { Text, View } from '../components/Themed'
-import { color, images, palette, spacing, typography } from '../theme'
+import { color, images, palette, spacing, typography } from 'views/theme'
 
 export default function LoginScreen() {
   return (
