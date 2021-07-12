@@ -1,8 +1,8 @@
 import * as React from 'react'
 import {
-  Button,
   Image,
   StyleSheet,
+  TextInput,
   TouchableOpacity,
   ViewStyle,
 } from 'react-native'
@@ -23,6 +23,24 @@ export default function LoginScreen() {
       />
       <Text style={styles.title}>NEON WALLET</Text>
 
+      <View style={FIELD}>
+        <TextInput
+          placeholder='Email'
+          style={{
+            width: 300,
+            borderRadius: 8,
+            flex: 1,
+            fontFamily: typography.primary,
+            color: color.secondary,
+            fontSize: 20,
+            lineHeight: 30,
+            height: 50,
+            backgroundColor: color.field,
+            paddingLeft: spacing[4],
+            paddingVertical: spacing[3],
+          }}
+        />
+      </View>
       <TouchableOpacity onPress={() => alert('yo')} style={styles.primary}>
         <Text style={{ fontFamily: typography.bold, fontSize: 18 }}>
           Login with Email
@@ -57,6 +75,14 @@ export default function LoginScreen() {
       </TouchableOpacity>
     </View>
   )
+}
+
+const FIELD: ViewStyle = {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  backgroundColor: color.field,
+  borderRadius: 8,
+  marginTop: 25,
 }
 
 const BASE_VIEW: ViewStyle = {
