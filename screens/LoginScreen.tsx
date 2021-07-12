@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Image, StyleSheet } from 'react-native'
 import { Text, View } from '../components/Themed'
+import Button from '../storybook/stories/Button'
 import { images, palette, typography } from '../theme'
 
 export default function LoginScreen() {
@@ -21,6 +22,7 @@ export default function LoginScreen() {
         lightColor='#eee'
         darkColor='rgba(255,255,255,0.1)'
       />
+      <Button />
     </View>
   )
 }
