@@ -1,8 +1,13 @@
 import * as React from 'react'
-import { Image, StyleSheet } from 'react-native'
+import {
+  Button,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  ViewStyle,
+} from 'react-native'
 import { Text, View } from '../components/Themed'
-import Button from '../storybook/stories/Button'
-import { images, palette, typography } from '../theme'
+import { color, images, palette, spacing, typography } from '../theme'
 
 export default function LoginScreen() {
   return (
@@ -10,34 +15,95 @@ export default function LoginScreen() {
       <Image
         source={images.logo}
         style={{
-          width: 80,
-          height: 80,
+          width: 100,
+          height: 100,
           resizeMode: 'contain',
           marginBottom: 20,
         }}
       />
-      <Text style={styles.title}>Neon Wallet</Text>
+      <Text style={styles.title}>NEON WALLET</Text>
+
+      <TouchableOpacity onPress={() => alert('yo')} style={styles.primary}>
+        <Text style={{ fontFamily: typography.bold, fontSize: 18 }}>
+          Login with Email
+        </Text>
+      </TouchableOpacity>
       <View
         style={styles.separator}
         lightColor='#eee'
         darkColor='rgba(255,255,255,0.1)'
       />
-      <Button />
+      <TouchableOpacity onPress={() => alert('yo')} style={styles.secondary}>
+        <Text
+          style={{
+            fontFamily: typography.bold,
+            fontSize: 18,
+            color: color.secondaryText,
+          }}
+        >
+          Login with Sollet
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => alert('yo')} style={styles.secondary}>
+        <Text
+          style={{
+            fontFamily: typography.bold,
+            fontSize: 18,
+            color: color.secondaryText,
+          }}
+        >
+          Import wallet
+        </Text>
+      </TouchableOpacity>
     </View>
   )
 }
 
+const BASE_VIEW: ViewStyle = {
+  paddingVertical: spacing[2],
+  paddingHorizontal: spacing[2],
+  borderRadius: 4,
+  // alignSelf: 'stretch',
+  minHeight: 50,
+  minWidth: 120,
+  alignItems: 'center',
+  justifyContent: 'center',
+  shadowOffset: {
+    width: 0,
+    height: 6,
+  },
+  shadowOpacity: 1,
+  shadowRadius: 12,
+}
+
 const styles = StyleSheet.create({
+  primary: {
+    ...BASE_VIEW,
+    backgroundColor: color.primary,
+    shadowColor: 'rgba(91, 32, 242, 0.2)',
+    width: 300,
+    marginTop: 25,
+  },
+  secondary: {
+    ...BASE_VIEW,
+    backgroundColor: color.secondary,
+    shadowColor: 'rgba(120, 101, 182, 0.12)',
+    width: 300,
+    marginBottom: 25,
+    // marginTop: 25,
+  },
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'column',
     backgroundColor: palette.haiti,
   },
   title: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: 'bold',
-    fontFamily: typography.primary,
+    fontFamily: typography.bold,
+    letterSpacing: 1,
   },
   separator: {
     marginVertical: 30,
