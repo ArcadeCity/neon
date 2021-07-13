@@ -24,4 +24,5 @@ Login options:
 - Standard seed phrase
 
 Buildout:
-[] Show balances: ARCD, USDC, WBTC
+
+- [ ] Show balances: ARCD, USDC, WBTC
