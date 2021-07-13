@@ -1,8 +1,8 @@
 # Neon - Arcade City Wallet
 
-Crypto wallet for the Arcade City ecosystem.
+Crypto wallet for the Arcade ecosystem.
 
-Feature Buildout:
+## Features:
 
 - [ ] Show balances: ARCD, USDC, WBTC
 - [ ] Send SPL to AC user with rev-share tips
@@ -17,20 +17,26 @@ Feature Buildout:
 - [ ] Send/receive BTC via Lightning
 - [ ] Incentivized Bitcoin hodling
 
-Chains supported:
+## Audience
+
+Primary audience is non-technical users of Arcade City: riders, drivers, other service providers. This app is their gateway drug to crypto/"BITCOIN!".
+
+Secondary audience is crypto plebs who lack a sexy way to meaningfully use crypto for things other than counting their money or turning one dollar into two. Neon is how everyone will interact with the global peer-to-peer services layer of Arcade City and our broader Arcade ecosystem.
+
+## Chains supported:
 
 - Bitcoin
 - Solana
 - Stacks (?)
 
-Coins supported:
+## Coins supported:
 
 - Arcade Token
 - Bitcoin (onchain, Lightning and Solana WBTC)
 - USDC (on Solana)
 - Other SPL tokens (?)
 
-Login options:
+## Login options:
 
 - Passwordless email via [Magic](https://magic.link/)
   - Requires existing Arcade City account
