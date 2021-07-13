@@ -2,28 +2,7 @@
 
 Crypto wallet for the Arcade City ecosystem.
 
-Chains supported:
-
-- Bitcoin
-- Solana
-
-Coins supported:
-
-- Arcade Token
-- Bitcoin (Lightning and Solana WBTC)
-- USDC
-
-May support in the future:
-
-- Stacks
-
-Login options:
-
-- Passwordless email via [Magic](https://magic.link/)
-  - Requires existing Arcade City account
-- Standard seed phrase
-
-Buildout:
+Feature Buildout:
 
 - [ ] Show balances: ARCD, USDC, WBTC
 - [ ] Send SPL to AC user with rev-share tips
@@ -37,3 +16,22 @@ Buildout:
 - [ ] Cash out USDC to bank account via wire via Circle [drivers only?]
 - [ ] Send/receive BTC via Lightning
 - [ ] Incentivized Bitcoin hodling
+
+Chains supported:
+
+- Bitcoin
+- Solana
+- Stacks (?)
+
+Coins supported:
+
+- Arcade Token
+- Bitcoin (onchain, Lightning and Solana WBTC)
+- USDC (on Solana)
+- Other SPL tokens (?)
+
+Login options:
+
+- Passwordless email via [Magic](https://magic.link/)
+  - Requires existing Arcade City account
+- Standard seed phrase
