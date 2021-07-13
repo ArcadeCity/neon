@@ -39,11 +39,11 @@ export default function LoginScreen() {
         })
         console.log(transaction)
 
-        const signature = await magic.sdk.solana.sendAndConfirmTransaction(
-          transaction
-        )
+        // const signature = await magic.sdk.solana.sendAndConfirmTransaction(
+        //   transaction
+        // )
 
-        console.log('Signature', signature)
+        // console.log('Signature', signature)
       } catch (e) {
         console.log(e)
       }
