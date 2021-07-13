@@ -7,7 +7,7 @@ Chains supported:
 - Bitcoin
 - Solana
 
-Supports:
+Coins supported:
 
 - Arcade Token
 - Bitcoin (Lightning and Solana WBTC)
@@ -22,3 +22,6 @@ Login options:
 - Passwordless email via [Magic](https://magic.link/)
   - Requires existing Arcade City account
 - Standard seed phrase
+
+Buildout:
+[] Show balances: ARCD, USDC, WBTC
