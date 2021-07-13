@@ -4,8 +4,8 @@ Crypto wallet for the Arcade ecosystem.
 
 ## Features:
 
-- [ ] Show balances: ARCD, USDC, WBTC
-- [ ] Send SPL to AC user with rev-share tips
+- [ ] Show Solana SPL token balances for supported tokens: ARCD, USDC, WBTC
+- [ ] Send supported SPL token to Arcade player with rev-share tips
 - [ ] List transaction history and detail view with metadata
 - [ ] Arcade transaction explorer - show tx metadata on website
 - [ ] Smart contract for basic SPL locks with incentivized ARCD hodling
@@ -16,6 +16,7 @@ Crypto wallet for the Arcade ecosystem.
 - [ ] Cash out USDC to bank account via wire via Circle [drivers only?]
 - [ ] Send/receive BTC via Lightning
 - [ ] Incentivized Bitcoin hodling
+- [ ] More fiat onramps/offramps
 
 ## Audience
 
