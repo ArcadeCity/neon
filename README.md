@@ -17,7 +17,8 @@ May support in the future:
 
 - Stacks
 
-Auth options:
+Login options:
 
-- Passwordless email via [https://magic.link/](Magic)
+- Passwordless email via [Magic](https://magic.link/)
+  - Requires existing Arcade City account
 - Standard seed phrase
