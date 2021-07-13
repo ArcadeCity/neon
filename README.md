@@ -22,7 +22,9 @@ Crypto wallet for the Arcade ecosystem.
 
 Primary audience is non-technical users of Arcade City: riders, drivers, other service providers. This app is their gateway drug to crypto/"BITCOIN!".
 
-Secondary audience is crypto plebs who lack a sexy way to meaningfully use crypto for things other than counting their money or turning one dollar into two. Neon is how everyone will interact with the global peer-to-peer services layer of Arcade City and our broader Arcade ecosystem.
+Secondary audience is crypto plebs who lack a sexy way to meaningfully use crypto for things other than counting their money or turning one dollar into two.
+
+Neon is the wallet enabling everyone in the world to interact with the global peer-to-peer services ecosystem of Arcade City.
 
 ## Chains supported:
 
