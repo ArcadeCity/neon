@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {
+  Alert,
   Image,
   StyleSheet,
   TextInput,
@@ -7,9 +8,74 @@ import {
   ViewStyle,
 } from 'react-native'
 import { Text, View } from '../components/Themed'
-import { color, images, palette, spacing, typography } from '../theme'
+import { color, images, palette, spacing, typography } from 'views/theme'
+import { Magic } from 'services/magic'
+import * as web3 from '@solana/web3.js'
 
 export default function LoginScreen() {
+  const [user, setUser] = React.useState<any>()
+  React.useEffect(() => {
+    ;(async () => {
+      const magic = new Magic()
+      await magic.setup()
+      try {
+        await magic.sdk.user.logout()
+        console.log('logged out...?')
+        console.log(magic)
+        await magic.sdk.solana.sdk.auth.loginWithMagicLink({
+          email: 'chris@arcade.city',
+          showUI: false,
+        })
+        console.log('Login successful')
+        const magicUser = await magic.sdk.solana.sdk.user.getMetadata()
+        console.log(magicUser)
+        setUser(magicUser)
+        const transaction = web3.SystemProgram.transfer({
+          fromPubkey: magicUser.publicAddress,
+          toPubkey: new web3.PublicKey(
+            '9kPmf9egtyUtNvmnf25KsP5QE6VTBfXXhJJkjEehUXw9'
+          ),
+          lamports: 1000,
+        })
+        console.log(transaction)
+
+        // const signature = await magic.sdk.solana.sendAndConfirmTransaction(
+        //   transaction
+        // )
+
+        // console.log('Signature', signature)
+      } catch (e) {
+        console.log(e)
+      }
+    })()
+  }, [])
+
+  if (user) {
+    return (
+      <View style={styles.container}>
+        <Image
+          source={images.logo}
+          style={{
+            width: 100,
+            height: 100,
+            resizeMode: 'contain',
+            marginBottom: 20,
+          }}
+        />
+        <Text style={styles.title}>WELCOME</Text>
+        <Text
+          style={{
+            fontFamily: typography.bold,
+            fontSize: 18,
+            color: color.secondaryText,
+          }}
+        >
+          {user?.publicAddress}
+        </Text>
+      </View>
+    )
+  }
+
   return (
     <View style={styles.container}>
       <Image
@@ -41,7 +107,10 @@ export default function LoginScreen() {
           }}
         />
       </View>
-      <TouchableOpacity onPress={() => alert('yo')} style={styles.primary}>
+      <TouchableOpacity
+        onPress={() => Alert.alert('yo')}
+        style={styles.primary}
+      >
         <Text style={{ fontFamily: typography.bold, fontSize: 18 }}>
           Login with Email
         </Text>
@@ -51,7 +120,10 @@ export default function LoginScreen() {
         lightColor='#eee'
         darkColor='rgba(255,255,255,0.1)'
       />
-      <TouchableOpacity onPress={() => alert('yo')} style={styles.secondary}>
+      <TouchableOpacity
+        onPress={() => Alert.alert('yo')}
+        style={styles.secondary}
+      >
         <Text
           style={{
             fontFamily: typography.bold,
@@ -62,7 +134,10 @@ export default function LoginScreen() {
           Login with Sollet
         </Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => alert('yo')} style={styles.secondary}>
+      <TouchableOpacity
+        onPress={() => Alert.alert('yo')}
+        style={styles.secondary}
+      >
         <Text
           style={{
             fontFamily: typography.bold,

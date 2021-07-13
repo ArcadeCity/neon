@@ -19,9 +19,19 @@
     "resolveJsonModule": true,
     "baseUrl": "./",
     "paths": {
+      "i18n": ["src/i18n"],
+      "i18n/*": ["src/i18n/*"],
+      "lib": ["src/lib"],
+      "lib/*": ["src/lib/*"],
+      "stores/*": ["src/stores/*"],
+      "stores": ["src/stores"],
+      "navigation": ["src/navigation"],
+      "services/*": ["src/services/*"],
+      "storybook": ["storybook"],
+      "storybook/*": ["storybook/*"],
       "views/*": ["src/views/*"]
     }
   },
-  "include": ["src"],
+  "include": ["App.tsx", "src", "screens"],
   "exclude": ["node_modules"]
 }
