@@ -39,6 +39,6 @@ Secondary audience is crypto plebs who lack a sexy way to meaningfully use crypt
 
 ## Login options:
 
-- Passwordless email via [Magic](https://magic.link/)
+- Passwordless email via [Magic](https://magic.link/) with [Solana extension](https://magic.link/docs/blockchains/solana)
   - Requires existing Arcade City account
 - Standard seed phrase
