@@ -9,7 +9,6 @@ import {
 import { withKnobs } from '@storybook/addon-knobs'
 
 import './rn-addons'
-import './addons'
 
 // enables knobs for all stories
 addDecorator(withKnobs)

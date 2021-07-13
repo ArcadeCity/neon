@@ -8,8 +8,7 @@
     "eject": "expo eject",
     "test": "jest --watchAll",
     "format": "prettier ./**/*.{js,ts,tsx} -w",
-    "storybook": "npx start-storybook",
-    "storybook:web": "ln -s ../@storybook/react/bin/index.js storybookweb && mv storybookweb node_modules/.bin && storybookweb -p 6006 --config-dir storybook-web"
+    "storybook": "ln -s ../@storybook/react/bin/index.js storybookweb && mv storybookweb node_modules/.bin && storybookweb -p 6006 --config-dir storybook-web"
   },
   "jest": {
     "preset": "jest-expo"
