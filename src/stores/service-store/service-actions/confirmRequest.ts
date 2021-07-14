@@ -1,9 +1,8 @@
 import { getRoot } from 'mobx-state-tree'
-import { ApiServiceRequest, saveServiceRequest } from '../../../services/api'
+import { ApiServiceRequest, saveServiceRequest, ServiceApi } from 'services/api'
 import { RootStore } from 'stores/root-store'
 import { ServiceStore } from '../service-store'
 import { ServiceRequest, ServiceRequestStatus } from '../service-models'
-import { ServiceApi } from 'services/api'
 
 export const confirmRequest = async (self: ServiceStore) => {
   if (!self.activeRequest) return false
