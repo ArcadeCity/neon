@@ -9,6 +9,7 @@
     "test": "jest --watchAll",
     "format": "prettier ./**/*.{js,ts,tsx} -w",
     "storybook": "ln -s ../@storybook/react/bin/index.js storybookweb && mv storybookweb node_modules/.bin && storybookweb -p 6006 --config-dir storybook-web",
+    "build-storybook": "build-storybook --config-dir storybook-web --output-dir dist-storybook-web --quiet",
     "deploy-storybook": "storybook-to-ghpages"
   },
   "jest": {
