@@ -9,13 +9,13 @@ module.exports = function (api) {
         {
           root: ['./src'],
           alias: {
-            // app: './src/app',
-            // i18n: './src/i18n',
-            // lib: './src/lib',
-            // navigation: './src/navigation',
-            // services: './src/services',
-            // stores: './src/stores',
-            // storybook: './storybook',
+            app: './src/app',
+            i18n: './src/i18n',
+            lib: './src/lib',
+            navigation: './src/navigation',
+            services: './src/services',
+            stores: './src/stores',
+            storybook: './storybook',
             views: './src/views',
           },
           extensions: [
