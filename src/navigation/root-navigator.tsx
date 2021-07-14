@@ -38,7 +38,7 @@ export type RootParamList = {
 const Stack = createStackNavigator<RootParamList>()
 
 const RootStack = observer(() => {
-  const { authStore, chatStore, serviceStore } = useStores()
+  const { authStore, chatStore } = useStores()
   const isUserLoggedIn = authStore.authed
   const readyToEnter = authStore.canEnterCity
 
@@ -51,9 +51,8 @@ const RootStack = observer(() => {
   }, [readyToEnter])
 
   const chatrooms = chatStore.chatrooms
-  const requests: any = values(serviceStore.serviceRequests)
 
-  const { loadedAllPlayers } = usePlayerResolver({ chatrooms, requests })
+  const { loadedAllPlayers } = usePlayerResolver({ chatrooms })
   // if (!loadedAllPlayers) return <Loading message='Loading' />
   if (!loadedAllPlayers) return <></>
 

@@ -9,7 +9,8 @@ export const login = async (self: AuthStore) => {
     await magic.auth.loginWithMagicLink({ email: self.emailInput })
     const token = await magic.user.getIdToken()
     self.setMagicToken(token)
-    await self.loginServer(token)
+    console.log(token)
+    // await self.loginServer(token)
     self.setLoggingIn(false)
   } catch (e) {
     self.setLoggingIn(false)

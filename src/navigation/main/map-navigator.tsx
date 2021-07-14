@@ -1,7 +1,6 @@
 import React from 'react'
 import { View } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { MapHome, NearbyPlayers } from 'views/map'
 // import { OnlineOffline } from 'views/shared'
 import { color, typography } from 'views/theme'
 import { NavButton } from 'views/shared'

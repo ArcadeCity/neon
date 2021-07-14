@@ -1,7 +1,7 @@
 import axios from 'axios'
 import Echo from 'laravel-echo'
 import { display } from 'lib'
-import Pusher from 'pusher-js/react-native'
+import Pusher from 'pusher-js'
 import { Alert } from 'react-native'
 
 export class Broadcasting {

@@ -6,6 +6,7 @@ import {
   Platform,
   TouchableWithoutFeedback,
   View,
+  TextInput,
 } from 'react-native'
 import { observer } from 'mobx-react-lite'
 import { useStores } from 'stores'
@@ -20,7 +21,7 @@ export const LoginScreen = observer(() => {
   const { authStore } = useStores()
   return (
     <>
-      <Map />
+      {/* <Map /> */}
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.container}
@@ -35,12 +36,18 @@ export const LoginScreen = observer(() => {
               />
             </View>
             <View style={styles.containerText}>
-              <TextField
+              <input
+                style={{ height: 50, width: 300 }}
+                onChange={(e) => {
+                  // console.log(e.target.value)
+                  authStore.setEmailInput(e.target.value)
+                }}
+              />
+              {/* <TextField
                 placeholderTx='auth.enterYourEmailAddress'
-                onChangeText={(text) => authStore.setEmailInput(text)}
                 autoCapitalize='none'
                 autoCompleteType='email'
-              />
+              /> */}
               <Button
                 onPress={authStore.login}
                 tx={authStore.loggingIn ? 'common.loading' : 'auth.login'}

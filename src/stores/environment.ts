@@ -1,7 +1,6 @@
 import { Api } from '../services/api'
 import { Broadcasting } from '../services/broadcasting'
 import { Magic } from '../services/magic'
-import { Mapbox } from '../services/mapbox'
 import { Solana } from '../services/solana'
 
 let ReactotronDev
@@ -24,11 +23,6 @@ export class Environment {
     this.api = new Api()
     this.broadcasting = new Broadcasting()
     this.magic = new Magic()
-    this.mapbox = new Mapbox({
-      accessToken:
-        'pk.eyJ1IjoiYWNsaW9ucyIsImEiOiJjamVhMmNtY2swaXNtMnBsbnB2aDVqNTBiIn0.gM_i1jhawFz2EpKBX4VmwQ',
-      baseUrl: 'https://api.mapbox.com/geocoding/v5/mapbox.places/',
-    })
     this.solana = new Solana()
   }
 

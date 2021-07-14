@@ -10,23 +10,7 @@ import {
 import { ChatStore } from 'stores/chat-store'
 import { Player, PlayerModel } from 'stores/player-store'
 import { RootStore } from 'stores/root-store'
-import {
-  Address,
-  AddressModel,
-  CoordsModel,
-  ServiceRequest,
-  ServiceRequestModel,
-  ServiceRequestStatus,
-} from 'stores/service-store/service-models'
-import {
-  ApiAddress,
-  ApiChatroom,
-  ApiGuild,
-  ApiMessage,
-  ApiPlayer,
-  ApiServiceRequest,
-} from './types'
-import { Guild, GuildModel } from 'stores/guild-store'
+import { ApiAddress, ApiChatroom, ApiPlayer, ApiServiceRequest } from './types'
 
 export const saveServiceRequest = (self: any, apiSR: ApiServiceRequest) => {
   // display({
@@ -47,10 +31,6 @@ export const saveServiceRequest = (self: any, apiSR: ApiServiceRequest) => {
   const apiChatroom: ApiChatroom = apiSR.chatroom
   const chatroom: Chatroom = normalizeApiChatroom(apiChatroom)
   root.chatStore.setChatroom(chatroom)
-
-  // Save the chatroom
-  const serviceRequest: ServiceRequest = normalizeApiServiceRequest(apiSR)
-  root.serviceStore.setRequest(serviceRequest)
 }
 
 export const getOrCreateChatroom = (
@@ -65,23 +45,6 @@ export const getOrCreateChatroom = (
   } else {
     return self.chatrooms.get(chatroomId) ?? normalizeApiChatroom(apiChatroom) // Shouldn't reach latter
   }
-}
-
-export const normalizeApiAddresses = (apiAddresses: ApiAddress[]) => {
-  const addresses: Address[] = []
-  apiAddresses.forEach((apiAddress: ApiAddress) => {
-    const normalized = AddressModel.create({
-      id: uuid(),
-      prettyName: apiAddress.prettyName,
-      type: apiAddress.type,
-      coords: CoordsModel.create({
-        latitude: apiAddress.coords.latitude,
-        longitude: apiAddress.coords.longitude,
-      }),
-    })
-    addresses.push(normalized)
-  })
-  return addresses
 }
 
 export const normalizeApiChatroom = (chatroom: ApiChatroom) => {

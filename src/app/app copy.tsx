@@ -1,7 +1,8 @@
 import 'i18n'
 // import 'lib/ignore-warnings'
 import React, { useState, useEffect, useRef } from 'react'
-import { Alert, StatusBar, Text, View } from 'react-native'
+import { Alert, StatusBar, View } from 'react-native'
+// import { NavigationContainerRef } from '@react-navigation/native'
 import {
   SafeAreaProvider,
   initialWindowMetrics,
@@ -22,13 +23,18 @@ export const NAVIGATION_PERSISTENCE_KEY = 'NAVIGATION_STATE'
 const storage = {}
 
 export function App() {
+  return <></>
+}
+
+export function App2() {
   const navigationRef: any = useRef<NavigationContainerRef>()
   const [rootStore, setRootStore] = useState<RootStore | undefined>(undefined)
 
   setRootNavigation(navigationRef)
-  // const { initialNavigationState, onNavigationStateChange } =
-  //   useNavigationPersistence(storage, NAVIGATION_PERSISTENCE_KEY)
+  const { initialNavigationState, onNavigationStateChange } =
+    useNavigationPersistence(storage, NAVIGATION_PERSISTENCE_KEY)
 
+  // Kick off initial async loading actions, like loading fonts and RootStore
   useEffect(() => {
     ;(async () => {
       // Check if we're on the latest app version; download and refresh if not.
@@ -41,6 +47,10 @@ export function App() {
     })()
   }, [])
 
+  // Before we show the app, we have to wait for our state to be ready.
+  // In the meantime, don't render anything. This will be the background
+  // color set in native by rootView's background color. You can replace
+  // with your own loading component if you wish.
   if (!rootStore) return <></>
 
   // otherwise, we're ready to render the app
@@ -51,17 +61,11 @@ export function App() {
         <View style={{ flex: 1, zIndex: 50 }}>
           <RootNavigator
             ref={navigationRef}
-            // initialState={}
-            // onStateChange={onNavigationStateChange}
+            initialState={initialNavigationState}
+            onStateChange={onNavigationStateChange}
           />
         </View>
       </SafeAreaProvider>
     </RootStoreProvider>
   )
-
-  // return (
-  //   <View>
-  //     <Text>sup!!!!</Text>
-  //   </View>
-  // )
 }

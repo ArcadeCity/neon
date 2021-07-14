@@ -1,15 +1,10 @@
-import { display } from 'lib'
 import {
   ApiChatroom,
-  ApiServiceRequest,
   AuthedPlayerResult,
   normalizeApiChatroom,
-  normalizeApiGuild,
-  saveServiceRequest,
 } from 'services/api'
 import { AuthStore } from 'stores/auth-store'
 import { Chatroom } from 'stores/chat-store'
-import { Guild } from 'stores/guild-store'
 
 export const afterLogin = async (
   self: AuthStore,
@@ -35,26 +30,6 @@ export const afterLogin = async (
       const chatroom: Chatroom = normalizeApiChatroom(apiChatroom)
       self.rootStore.chatStore.setChatroom(chatroom)
     })
-  }
-
-  const apiGuild = result.guild
-  if (apiGuild) {
-    const guild: Guild = normalizeApiGuild(apiGuild)
-    display({
-      name: 'normalize',
-      value: { guild, apiGuild },
-      important: true,
-    })
-    self.rootStore.guildStore.setGuild(guild)
-    self.rootStore.guildStore.setGuildId(guild.id)
-  }
-
-  const serviceRequests = result.service_requests
-  if (serviceRequests) {
-    serviceRequests.forEach((apiSR: ApiServiceRequest) => {
-      saveServiceRequest(self, apiSR)
-    })
-    self.rootStore.serviceStore.decideActiveRequest()
   }
 
   return true
